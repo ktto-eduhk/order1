@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="lib/konva.min.js"></script>
+  <meta charset="utf-8">
+  <title>你會......</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+	  background: url(./images/bg.png) no-repeat top center fixed;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    
+    var stage = new Konva.Stage({
+      container: 'container',
+      width: width,
+      height: height
+    });
+    var layer = new Konva.Layer();
+    stage.add(layer);
+	
+	//img add
+    var Img1 = new Konva.Image({
+        x: 20,
+        y: 80,
+		width: 400,
+        height: 219,
+        draggable: true,
+		dragBoundFunc: function(pos) {
+          //var newY = pos.y < 80 ? 80 : pos.y;
+		  //var newX = pos.x < 10 ? 10 : pos.x;
+		  var newX;
+		  var newY;
+		  
+		  if (pos.x < 10) {
+			newX = 10;
+		  }else if (pos.x > window.innerWidth - 410) {
+			newX = window.innerWidth - 410;
+		  }else{
+			newX = pos.x;
+		  }
+		  
+		  if (pos.y < 80) {
+			newY = 80;
+		  }else if (pos.y > window.innerHeight - 229) {
+			newY = window.innerHeight - 229;
+		  }else{
+			newY = pos.y;
+		  }
+		  
+          return {
+            x: newX,
+            y: newY
+          };
+        }
+    });
+    layer.add(Img1);
+	var Img4 = new Konva.Image({
+        x: 650,
+        y: 80,
+		width: 400,
+        height: 219,
+        draggable: true,
+		dragBoundFunc: function(pos) {
+          //var newY = pos.y < 80 ? 80 : pos.y;
+		  //var newX = pos.x < 10 ? 10 : pos.x;
+		  var newX;
+		  var newY;
+		  
+		  if (pos.x < 10) {
+			newX = 10;
+		  }else if (pos.x > window.innerWidth - 410) {
+			newX = window.innerWidth - 410;
+		  }else{
+			newX = pos.x;
+		  }
+		  
+		  if (pos.y < 80) {
+			newY = 80;
+		  }else if (pos.y > window.innerHeight - 229) {
+			newY = window.innerHeight - 229;
+		  }else{
+			newY = pos.y;
+		  }
+		  
+          return {
+            x: newX,
+            y: newY
+          };
+        }
+    });
+    layer.add(Img4);
+	var Img3 = new Konva.Image({
+        x: 20,
+        y: 520,
+		width: 400,
+        height: 219,
+        draggable: true,
+		dragBoundFunc: function(pos) {
+          //var newY = pos.y < 80 ? 80 : pos.y;
+		  //var newX = pos.x < 10 ? 10 : pos.x;
+		  var newX;
+		  var newY;
+		  
+		  if (pos.x < 10) {
+			newX = 10;
+		  }else if (pos.x > window.innerWidth - 410) {
+			newX = window.innerWidth - 410;
+		  }else{
+			newX = pos.x;
+		  }
+		  
+		  if (pos.y < 80) {
+			newY = 80;
+		  }else if (pos.y > window.innerHeight - 229) {
+			newY = window.innerHeight - 229;
+		  }else{
+			newY = pos.y;
+		  }
+		  
+          return {
+            x: newX,
+            y: newY
+          };
+        }
+    });
+    layer.add(Img3);
+	var Img2 = new Konva.Image({
+        x: 650,
+        y: 520,
+		width: 400,
+        height: 219,
+        draggable: true,
+		dragBoundFunc: function(pos) {
+          //var newY = pos.y < 80 ? 80 : pos.y;
+		  //var newX = pos.x < 10 ? 10 : pos.x;
+		  var newX;
+		  var newY;
+		  
+		  if (pos.x < 10) {
+			newX = 10;
+		  }else if (pos.x > window.innerWidth - 410) {
+			newX = window.innerWidth - 410;
+		  }else{
+			newX = pos.x;
+		  }
+		  
+		  if (pos.y < 80) {
+			newY = 80;
+		  }else if (pos.y > window.innerHeight - 229) {
+			newY = window.innerHeight - 229;
+		  }else{
+			newY = pos.y;
+		  }
+		  
+          return {
+            x: newX,
+            y: newY
+          };
+        }
+    });
+    layer.add(Img2);
+	
+	//load img
+    var imageObj1 = new Image();
+    imageObj1.onload = function() {
+        Img1.image(imageObj1);
+        layer.draw();
+    };
+    imageObj1.src = 'images/Picture1.jpg';
+    var imageObj2 = new Image();
+    imageObj2.onload = function() {
+        Img2.image(imageObj2);
+        layer.draw();
+    };
+    imageObj2.src = 'images/Picture2.jpg';
+	var imageObj3 = new Image();
+    imageObj3.onload = function() {
+        Img3.image(imageObj3);
+        layer.draw();
+    };
+    imageObj3.src = 'images/Picture3.jpg';
+	var imageObj4 = new Image();
+    imageObj4.onload = function() {
+        Img4.image(imageObj4);
+        layer.draw();
+    };
+    imageObj4.src = 'images/Picture4.jpg';
+	var imageObj5 = new Image();
+    imageObj5.onload = function() {
+        Img5.image(imageObj5);
+        layer.draw();
+    };
+    // use event delegation to update pointer style
+    // and apply borders
+    layer.on('mouseover', function(evt) {
+        var shape = evt.target;
+        document.body.style.cursor = 'pointer';
+        shape.strokeEnabled(false);
+        layer.draw();
+    });
+    layer.on('mouseout', function(evt) {
+        var shape = evt.target;
+        document.body.style.cursor = 'default';
+        shape.strokeEnabled(true);
+        layer.draw();
+    });
+  </script>
+</body>
+</html>
